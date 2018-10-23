@@ -1,20 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "custom";
 @import "font-awesome";
+@import "themifyicons";
 @import "fonts";
+
+/* Reference http://www.themeon.net/nifty/v2.9.1/index.html */
 
 /* Varables*/
 
-$primary-color : #438ae4;
-$secondary-color : #344251;
-$tertiary-color : #495563;
+$primary-color 			: #25476a;
+$secondary-color 		: #b052c0;
+$tertiary-color 		: #ecf0f5;
 
-$primary-font-family-100: 'Roboto-Thin';
-$primary-font-family-300: 'Roboto-Light';
-$primary-font-family-400: 'Roboto-Regular';
-$primary-font-family-500: 'Roboto-Medium';
-$primary-font-family-700: 'Roboto-Bold';
-$primary-font-family-900: 'Roboto-Black';
+$primary-font-color 	: #7a878e;
+$secondary-font-color 	: #4d627b;
+$tertiary-font-color 	: #3c4045;
+
+$primary-font-family-100: "Roboto-Thin","Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-font-family-300: "Roboto-Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-font-family-400: "Roboto-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-font-family-500: "Roboto-Medium","Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-font-family-700: "Roboto-Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-font-family-900: "Roboto-Black","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 /* end */
 
@@ -25,158 +33,424 @@ $primary-font-family-900: 'Roboto-Black';
 /* custom css */
 
 body{
-	font-family: $primary-font-family-400;
-	position: relative;
-	overflow:hidden;
+	background-color: $tertiary-color;
+	font-family: $primary-font-family-300;
+	font-size: 13px;
+	font-weight: normal;
+	color: $primary-font-color;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased !important;
 }
 
-.app-body{
-	position: fixed;
+a {
+    text-decoration: none;
+    color: #7a878e;
+    outline: 0;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: #6e7a81;
+    outline: 0 !important;
+}
+
+/* boottsrap css @override */
+
+.row {
+    margin: 0 -10px;
+}
+[class^="col-"]:not(.pad-no) {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.panel {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: none !important;
+    margin-bottom: 20px;
+    .panel-heading,
+    & > :first-child {
+    	border-top-left-radius: 2px;
+    	border-top-right-radius: 2px;
+    }
+    .panel-footer,
+    & > :last-child {
+    	border-bottom-left-radius: 2px;
+    	border-bottom-right-radius: 2px;
+	}
+}
+.panel-heading {
+    position: relative;
+    height: 42px;
+    padding: 0;
+    color: #4d627b;
+}
+.panel-title {
+    font-weight: normal;
+    padding: 0 20px 0 20px;
+    font-size: 1.15em;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.panel-body {
+    padding: 15px 20px 25px;
+}
+
+
+/* component css */
+
+.label-table {
+    display: inline-block;
+    width: 80%;
+    min-width: 8ex;
+    font-size: 1em;
+    max-width: 100px;
+    padding: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: top;
+}
+.label {
+    border-radius: 3px;
+    font-family: $primary-font-family-400;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    line-height: 1.475;
+    vertical-align: middle;
+    transition: all 0.25s;
+}
+
+.btn-purple, .btn-purple:focus {
+    background-color: #b052c0;
+    border-color: #ab47bc !important;
+    color: #fff;
+}
+
+.text-overflow {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* layout css */
+
+#app-container{
+	min-height: 100vh;
+	height: auto;
+	position: relative;
+	min-width: 290px;
+	overflow: hidden;
+}
+
+#app-navbar {
+    background-color: transparent;
+    z-index: 10000;
+}
+#app-navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 3999;
+    background-color: #25476a;
+    left: 0;
+    top: 0;
+}
+#app-navbar-container {
+    background-color: #25476a;
+}
+
+.navbar-content {
+    position: relative;
+    left: 0;
+    margin-left: 220px;
+    background-color: transparent;
+    height: 59px;
+    text-align: right;
+}
+
+.navbar-top-links{
+    margin-right: 10px;
+    float: right;
+    display: inline-block;
+    height: 59px;
+}
+.navbar-top-links > li {
+    float: left;
+}
+.navbar-top-links > li > a {
+    padding: 0 12px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 59px;
+    color: #fff;
+    transition: all 0.4s;
+}
+.navbar-top-links > li > a{
+    color: #fff;
+    font-size: 16px;
+    line-height: 1em;
+    vertical-align: middle;
+}
+.navbar-top-links > li > a:hover {
+    background-color: #25476a !important;
+    color: #d9d9d9;
+    transition: all 0.4s;
+}
+.navbar-top-links > li > a:focus {
+    background-color: transparent;
+}
+.navbar-top-links > .open > a, .navbar-top-links > .open > a:focus {
+    background-color: #224161 !important;
+    color: #d9d9d9;
+    box-shadow: none !important;
+}
+
+
+.dropdown-menu-sm {
+    min-width: 220px;
+}
+.dropdown-menu-md {
+    min-width: 270px;
+}
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+.dropdown-menu {
+    font-size: 13px;
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    margin: 5px 0 0;
+    padding: 0;
+    border: 0;
+}
+.navbar-top-links .dropdown-menu {
+    margin: 0;
+}
+.navbar-top-links .head-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.navbar-top-links .head-list li {
+    padding: 2px 10px;
+}
+.navbar-top-links .head-list li:first-child {
+    padding-top: 10px;
+}
+.navbar-top-links .head-list li:last-child {
+    padding-bottom: 10px;
+}
+.navbar-top-links .head-list li a {
+    display: block;
+    padding: 10px;
+    background: transparent;
+    border-radius: 3px;
+    transition: background .3s;
+}
+.navbar-top-links .head-list li a i {
+    color: #4d627b;
+}
+
+.navbar-top-links .head-list li a:hover {
+    background: rgba(0,0,0,0.05);
+    color: #7a878e;
+}
+
+.navbar-top-links .head-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.navbar-top-links .head-list li a > .media-body {
+    vertical-align: middle;
+}
+
+
+.badge-header {
+    position: absolute;
+    font-size: .85em;
+    font-weight: normal;
+    top: 45%;
+    margin-top: -1.5em;
+    min-width: 1.85em;
+    padding: 3px 5px;
+    right: 3px;
+}
+
+.badge-danger {
+    background-color: #f44336;
+}
+
+.badge-header:empty {
+    display: inline;
+    border-radius: 50%;
+    min-width: 0;
+    padding: .3em;
+    right: .7em;
+    top: 57%;
+    animation-iteration-count: 5;
+    font-size: .9em;
+	font-weight: 600;
+	color: #fff;
+}
+
+
+#app-content-container {
+    position: relative;
+    padding-top: 58px;
+    padding-bottom: 35px;
+    background-color: $tertiary-color;
+    padding-left: 220px;
+    &:before {
+	    content: '';
+	    display: block;
+	    height: 165px;
+	    width: 100%;
+	    position: absolute;
+	    background-color: $primary-color ;
+	    z-index: 0;
+	}
+}
+
+
+#app-page-content {
+    padding: 20px 20px 0;
+}
+
+#app-page-head, #app-page-content {
+    position: relative;
+}
+
+#app-mainnav-container{
+
+	position: absolute;
+	width: 220px;
+	left: 0px;
 	top: 0;
-	left: 0;
+	bottom: 0;
+	z-index: 4000;
+	min-height: 100%;
+	margin: 0 auto;
+	padding-top: 59px;
+
+}
+#app-mainnav{
+
+	height: 100%;
+	background-color: #fff;
+	color: #6b737c;
+
+}
+#app-mainnav-menu-wrap{
+	height: 100%;
+}
+.app-sidebar{
+	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+}
+.app-sidebar-content{
+	position: absolute;
+	overflow: auto;
 	overflow-x: hidden;
-	overflow-y: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
 
-.app-navbar{
-	border: 0px solid transparent;
-	border-radius: 0px;
-	.top-bar{
-		background-color: $secondary-color;
-		padding: 5px 0;
-	}
-	.bottom-bar{
-		background-color: $tertiary-color;
-		padding: 5px 0;
-	}
+#app-footer {
+    border-top: 1px solid rgba(0,0,0,0.07);
+    background-color: #f6f8fa;
+    color: #7a878e;
+    position: absolute;
+    padding-top: 10px;
+    bottom: 0;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    height: 35px;
+    padding-left: 220px;
+
 }
 
-.navbar-brand{
-	text-transform: uppercase;
-	color: #ffffff;
-	line-height: 40px;
-	padding: 0;
-	height: auto;
-	&:hover,&:focus{
-		color: #ffffff;
-	}
+#page-title {
+    display: table;
+    table-layout: fixed;
+    padding: 10px 20px;
+    width: 100%;
+    color: #4d627b;
+    padding-bottom: 0;
 }
 
-.app-main-menu{
-	margin-left: 30px;
-	&.navbar-nav > li{
-		padding: 0;
-	}
-	&.navbar-nav > li > a{
-		position: relative;
-		text-align: center;
-		height: 40px;
-		color: #ffffff;
-		background-color: transparent;
-		line-height: 40px;
-		padding: 0 15px;
-		text-transform: capitalize;
-		&:hover,&:focus{
-			color: $primary-color;
-			background-color: transparent;
+.page-header {
+    border: 0 none;
+    font-size: 1.5em;
+    font-family: $primary-font-family-400;
+    font-weight:  normal;
+    color: #4d627b;
+    margin: 0;
+    padding: 10px 0 10px;
+}
+
+.page-header, .searchbox {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* breadcumb css */
+.breadcrumb {
+    border-radius: 0;
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0 20px 10px;
+    font-size: 1em;
+}
+
+.page-header,
+#app-page-head .breadcrumb li,
+#app-page-head .breadcrumb li a{
+	color: #fff;
+}
+
+.breadcrumb .active {
+	font-family: $primary-font-family-400;
+    font-weight: normal;
+    color: #4d627b;
+}
+
+/* table css */
+.app-default-table{
+	.table{
+		th {
+		    font-size: 1.05em;
+		    font-family: $primary-font-family-400;
+		    font-weight: normal;
+		    border-bottom: 1px solid rgba(0,0,0,0.07);
+		    color: $secondary-font-color;
+		}
+		> tbody > tr:nth-child(2n+1) {
+		    background-color: rgba(0,0,0,0.015);
+		}
+		td {
+		    border-top: 1px solid rgba(0,0,0,0.07);
 		}
 	}
-	&.nav .open > a, &.nav .open > a:hover, &.nav .open > a:focus{
-		&:hover{
-			color: $primary-color;
-			background-color: transparent;
-		}
-	}
-	&.navbar-nav > li > .dropdown-menu{
-		border-radius: 3px;
-	}
-	.dropdown-menu > li > a{
-		font-family: $primary-font-family-300;
-		padding: 5px 12px;
-		text-transform: capitalize;
-	}
-	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
-		background-color: $primary-color;
-		color: #ffffff;
-	}
 }
 
-.app-user-quicks{
-	&.navbar-nav > li{
-		padding: 2px;
-	}
-	&.navbar-nav > li > a{
-		position: relative;
-		text-align: center;
-		width: 36px;
-		height: 36px;
-		border-radius: 50%;
-		background-color: #ffffff;
-		color: #303030;
-		line-height: 36px;
-		padding: 0;
-		.notify-simbole{
-			position: absolute;
-			z-index: 1;
-			width: 12px;
-			height: 12px;
-			display: block;
-			bottom: -1px;
-			left: -1px;
-			border-radius: 50%;
-			background-color: $primary-color;
-			border: 1px solid #ffffff;
-		}
-	}
-	.caret{
-		display: none;
-	}
-	&.navbar-nav > li > .dropdown-menu{
-		right: 0;
-		left: auto;
-		border-radius: 3px;
-	}
-	.dropdown-menu > li > a{
-		font-family: $primary-font-family-300;
-		padding: 5px 12px;
-		text-transform: capitalize;
-	}
-	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
-		background-color: $primary-color;
-		color: #ffffff;
-	}
-}
-
-.app-form-controller{
-	color: #303030;
-	font-family: $primary-font-family-300;
-	border-radius: 2px;
-	font-size: 12px;
-	border: 1px solid #dddddd;
-	height: 30px;
-	line-height: 100%;
-	&:hover{
-		box-shadow:none;
-	}
-}
-
-.app-btn-blue{
-	background-color: $primary-color;
-	color: #ffffff;
-	font-family: $primary-font-family-300;
-	border-radius: 2px;
-	font-size: 12px;
-	text-transform: capitalize;
-	border: 1px solid $primary-color;
-	height: 30px;
-	line-height: 100%;
-	&:hover{
-		color: #ffffff;
-		background-color: $primary-color;
-		opacity: .9;
-	}
-}
 
 /* end */
+
+
