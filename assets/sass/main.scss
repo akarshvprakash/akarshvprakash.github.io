@@ -44,7 +44,7 @@ body{
 
 a {
     text-decoration: none;
-    color: #7a878e;
+    color: $primary-font-color;
     outline: 0;
 }
 a:hover, a:focus {
@@ -82,12 +82,12 @@ a:hover, a:focus {
     position: relative;
     height: 42px;
     padding: 0;
-    color: #4d627b;
+    color: $secondary-font-color;
 }
 .panel-title {
     font-weight: normal;
-    padding: 0 20px 0 20px;
-    font-size: 1.15em;
+    padding: 10px 20px 0 20px;
+    font-size: 18px;
     line-height: 42px;
     white-space: nowrap;
     overflow: hidden;
@@ -130,7 +130,7 @@ a:hover, a:focus {
 }
 
 .btn-purple, .btn-purple:focus {
-    background-color: #b052c0;
+    background-color: $secondary-color;
     border-color: #ab47bc !important;
     color: #fff;
 }
@@ -160,12 +160,52 @@ a:hover, a:focus {
     position: absolute;
     width: 100%;
     z-index: 3999;
-    background-color: #25476a;
+    background-color: $primary-color;
     left: 0;
     top: 0;
 }
 #app-navbar-container {
-    background-color: #25476a;
+    background-color: $primary-color;
+}
+
+.navbar-header {
+    background-color: transparent;
+    display: block;
+    left: 0;
+    position: relative;
+    float: left;
+}
+.navbar-brand {
+    width: 220px;
+    color: $primary-color;
+    padding: 0;
+    height: 59px;
+    position: relative;
+    z-index: 2000;
+    overflow: hidden;
+}
+
+.brand-icon {
+    display: block;
+    line-height: 59px;
+    width: 59px;
+    height: 59px;
+    float: left;
+    margin: 0;
+}
+
+.brand-title {
+    padding: 0 1.5em 0 59px;
+    width: 220px;
+    color: #ffffff;
+    display: block;
+    line-height: 59px;
+}
+
+.brand-text {
+    display: block;
+    font-size: 19px;
+    font-weight: 600;
 }
 
 .navbar-content {
@@ -183,6 +223,12 @@ a:hover, a:focus {
     display: inline-block;
     height: 59px;
 }
+
+.navbar-top-links:first-child {
+    margin-left: 10px;
+    float: left;
+}
+
 .navbar-top-links > li {
     float: left;
 }
@@ -201,7 +247,7 @@ a:hover, a:focus {
     vertical-align: middle;
 }
 .navbar-top-links > li > a:hover {
-    background-color: #25476a !important;
+    background-color: $primary-color !important;
     color: #d9d9d9;
     transition: all 0.4s;
 }
@@ -258,12 +304,12 @@ a:hover, a:focus {
     transition: background .3s;
 }
 .navbar-top-links .head-list li a i {
-    color: #4d627b;
+    color: $secondary-font-color;
 }
 
 .navbar-top-links .head-list li a:hover {
     background: rgba(0,0,0,0.05);
-    color: #7a878e;
+    color: $primary-font-color;
 }
 
 .navbar-top-links .head-list {
@@ -273,6 +319,44 @@ a:hover, a:focus {
 }
 .navbar-top-links .head-list li a > .media-body {
     vertical-align: middle;
+}
+
+
+.navbar-content .custom-search-form {
+    width: 300px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 59px;
+    padding: 0 10px;
+}
+
+.navbar-content .search-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    transition-duration: 0s !important;
+    display: block !important;
+    background-color: transparent;
+    position: static;
+    box-shadow: none;
+    height: auto !important;
+}
+
+.navbar-content .custom-search-form input {
+    padding: 0 10px;
+    height: 59px;
+    border: 0 !important;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    opacity: 0;
+    background: transparent;
+    opacity: 1;
+    padding: 0;
+    box-shadow: none;
+    color: #fff;
 }
 
 
@@ -373,7 +457,7 @@ a:hover, a:focus {
 #app-footer {
     border-top: 1px solid rgba(0,0,0,0.07);
     background-color: #f6f8fa;
-    color: #7a878e;
+    color: $primary-font-color;
     position: absolute;
     padding-top: 10px;
     bottom: 0;
@@ -390,7 +474,7 @@ a:hover, a:focus {
     table-layout: fixed;
     padding: 10px 20px;
     width: 100%;
-    color: #4d627b;
+    color: $secondary-font-color;
     padding-bottom: 0;
 }
 
@@ -399,7 +483,7 @@ a:hover, a:focus {
     font-size: 1.5em;
     font-family: $primary-font-family-400;
     font-weight:  normal;
-    color: #4d627b;
+    color: $secondary-font-color;
     margin: 0;
     padding: 10px 0 10px;
 }
@@ -409,6 +493,83 @@ a:hover, a:focus {
     vertical-align: middle;
 }
 
+
+.mainnav-profile {
+    color: $secondary-font-color;
+    opacity: 1;
+    margin-bottom: 7px;
+    max-height: 350px;
+    overflow: hidden;
+    .profile-wrap {
+        padding: 30px 20px 12px;
+        background-color: #fff;
+    }
+    .mnp-name {
+        color: $secondary-font-color;
+        margin: 0;
+        font-size: 1em;
+        font-weight: 700;
+    }
+    .mnp-desc {
+        font-size: .9em;
+        color: $secondary-font-color;
+        opacity: 0.75;
+    }
+}
+
+.list-header {
+    font-weight: 300;
+    padding: 10px 15px;
+    position: relative;
+}
+
+#mainnav {
+    color: #6b737c;
+}
+
+#mainnav-menu a {
+    display: block;
+    color: inherit;
+    padding: 12px 18px;
+}
+
+#mainnav-menu a {
+    color: inherit;
+}
+
+#mainnav-menu i {
+    font-size: 15px;
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+#app-mainnav .list-header {
+    font-size: .88em;
+    font-weight: 700;
+    color: $tertiary-font-color;
+    text-transform: uppercase;
+}
+
+#app-mainnav li .arrow {
+    float: right;
+    line-height: 1.15;
+    padding-right: 0;
+    font-size: 13px;
+}
+
+#mainnav-menu ul{
+    list-style: none;
+    padding-left: 0;
+    &.dropdown-menu{
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        margin: 0 0 15px;
+    }
+}
+#mainnav-menu ul a{
+    padding: 8px 20px 8px 53px;
+}
 
 /* breadcumb css */
 .breadcrumb {
@@ -428,7 +589,7 @@ a:hover, a:focus {
 .breadcrumb .active {
 	font-family: $primary-font-family-400;
     font-weight: normal;
-    color: #4d627b;
+    color: $secondary-font-color;
 }
 
 /* table css */
@@ -448,6 +609,31 @@ a:hover, a:focus {
 		    border-top: 1px solid rgba(0,0,0,0.07);
 		}
 	}
+}
+
+#add-new{
+    border-radius: 25px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    i{
+        font-size: 13px;
+    }
+}
+
+.list-divider {
+    margin: 15px 0;
+    height: 1px;
+}
+
+.list-group .list-divider {
+    display: block;
+}
+#app-mainnav .list-divider {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    margin: 8px 0;
+}
+#mainnav-menu > .list-divider {
+    margin: 17px 0 15px;
 }
 
 

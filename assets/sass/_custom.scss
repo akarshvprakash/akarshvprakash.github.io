@@ -1,7 +1,10 @@
 /*padding*/
 
-.pad-l20{
+.pad-lft{
 	padding-left: 20px;
+}
+.pad-btm {
+    padding-bottom: 15px;
 }
 .pad-all {
     padding: 15px;
@@ -10,6 +13,7 @@
 .text-main, a.text-main:hover, a.text-main:focus {
     color: #4d627b;
 }
+
 .bord-top {
     border-top: 1px solid rgba(0,0,0,0.07);
 }
@@ -17,6 +21,10 @@
 .img-sm {
     width: 48px;
     height: 48px;
+}
+.img-md {
+    width: 64px;
+    height: 64px;
 }
 
 .text-semibold {
