@@ -34,7 +34,7 @@ $primary-font-family-900: "Roboto-Black","Helvetica Neue",Helvetica,Arial,sans-s
 
 body{
 	background-color: $tertiary-color;
-	font-family: $primary-font-family-300;
+	font-family: $primary-font-family-400;
 	font-size: 13px;
 	font-weight: normal;
 	color: $primary-font-color;
@@ -51,6 +51,11 @@ a:hover, a:focus {
     text-decoration: none;
     color: #6e7a81;
     outline: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $primary-font-family-500;
+    color: #4d627b;
 }
 
 /* boottsrap css @override */
@@ -97,20 +102,21 @@ a:hover, a:focus {
     padding: 15px 20px 25px;
 }
 
-
-/* component css */
-
-.label-table {
-    display: inline-block;
-    width: 80%;
-    min-width: 8ex;
-    font-size: 1em;
-    max-width: 100px;
-    padding: 5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    vertical-align: top;
+.panel-footer {
+    background-color: #fdfdfe;
+    color: #7a878e;
+    border-color: rgba(0,0,0,0.02);
+    position: relative;
 }
+.panel-footer {
+    background-color: #fdfdfe;
+    color: #7a878e;
+}
+.panel .panel-footer, .panel > :last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
 .label {
     border-radius: 3px;
     font-family: $primary-font-family-400;
@@ -135,12 +141,102 @@ a:hover, a:focus {
     color: #fff;
 }
 
+.btn-primary, .btn-primary:focus {
+    background-color: #294f75;
+    border-color: #25476a !important;
+    color: #fff;
+}
+
+.btn-danger, .btn-danger:focus {
+    background-color: #f55145;
+    border-color: #f44336 !important;
+    color: #fff;
+}
+
+.btn-success, .btn-success:focus {
+    background-color: #92c755;
+    border-color: #8bc34a !important;
+    color: #fff;
+}
+
+.btn-lg{
+    padding: 10px 16px;
+}
+
+/* form elements */
+
+.form-control {
+    height: 33px;
+    font-size: 13px;
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition-duration: .5s;
+}
+
+/* end */
+
+/* component css */
+
+.label-table {
+    display: inline-block;
+    width: 80%;
+    min-width: 8ex;
+    font-size: 1em;
+    max-width: 100px;
+    padding: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: top;
+}
+
 .text-overflow {
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* Login page css */
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .8;
+    background-image: url("../images/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#login-container{
+    min-width: 270px;
+    margin: 0 auto;
+    width: 350px;
+    position: relative;
+    background-color: transparent;
+    border: 0;
+}
+
+.app-login-page{
+    #app-footer{
+        padding-left: 0px;
+        p{
+            padding-right: 15px;
+            text-align: center;
+        }
+    }
+}
+
+/* end */
+
 
 /* layout css */
 

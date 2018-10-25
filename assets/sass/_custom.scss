@@ -10,6 +10,10 @@
     padding: 15px;
 }
 
+.mar-tft{
+    margin-top: 15px;
+}
+
 .text-main, a.text-main:hover, a.text-main:focus {
     color: #4d627b;
 }
@@ -34,3 +38,7 @@
 .mar-no {
     margin: 0 !important;
 }
+
+ .checkbox.custom label{
+    line-height: 25px;
+ }
